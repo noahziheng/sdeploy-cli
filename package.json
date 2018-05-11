@@ -8,9 +8,10 @@
     "sdeploy": "./index.js"
   },
   "author": "Noah Gao",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "dependencies": {
     "commander": "^2.15.1",
+    "configstore": "^3.1.2",
     "shelljs": "^0.8.2"
   }
 }
