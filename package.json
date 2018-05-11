@@ -4,6 +4,13 @@
   "description": "A light development tool using SCP,SFTP and RSync",
   "main": "index.js",
   "repository": "https://github.com/noahziheng/sdeploy",
+  "bin": {
+    "sdeploy": "./index.js"
+  },
   "author": "Noah Gao",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "shelljs": "^0.8.2"
+  }
 }
