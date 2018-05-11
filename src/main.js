@@ -16,7 +16,19 @@ class AppCore {
    * @param {String} arg Command arg,maybe config's name or path
    * @memberof AppCore
    */
-  run (arg) {}
+  run (configName = null, configPath = null) {
+    this.loadConfig(configPath) // Load Configs
+  }
+
+  /**
+   * A Method for load configuations
+   *
+   * @param {String} [path=null] Config file's path
+   * @memberof AppCore
+   */
+  loadConfig (path = null) {
+    if (!path) {}
+  }
 }
 
 module.exports = AppCore
