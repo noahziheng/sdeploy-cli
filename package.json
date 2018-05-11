@@ -1,0 +1,9 @@
+{
+  "name": "sdeploy",
+  "version": "0.1.0",
+  "description": "A light development tool using SCP,SFTP and RSync",
+  "main": "index.js",
+  "repository": "https://github.com/noahziheng/sdeploy",
+  "author": "Noah Gao",
+  "license": "GPLv3"
+}
