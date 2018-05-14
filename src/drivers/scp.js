@@ -8,7 +8,10 @@ class SCPDriver extends BaseDriver {
   }
 
   upload (localpath = '.', remotepath = '') {
-    shell.exec(`scp ${this.args} ${localpath} ${this.remote.user}@${this.remote.address}:${this.remote.rootpath}/${remotepath}`)
+    return new Promise((resolve, reject) => {
+      const result = shell.exec(`scp ${this.args} ${localpath} ${this.remote.user}@${this.remote.address}:${this.remote.rootpath}/${remotepath}`)
+      return result.code !== 0 ? reject(new Error(result.stderr)) : resolve(result)
+    })
   }
 }
 

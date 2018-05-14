@@ -7,11 +7,11 @@ program
   .usage('[config name]')
   .option('-c, --config <path>', 'The config file\'s location, default file is on ~/.config globally.')
   .option('-n, --new', 'Skip configuation select, do new action directly.')
-  .option('-o, --output <path>', 'Output the configuation to file instead of do upload action.')
+  .option('-p, --postscript <path>', 'Execute command before upload files.')
   .parse(process.argv)
 console.log(program)
 
-new AppCore(program.new, program.output).run(
+new AppCore(program.new, program.postscript).run(
   program.args.shift(), // Config Name
   program.config // Config Path
 ) // Run app

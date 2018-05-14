@@ -7,9 +7,11 @@ class BaseDriver {
    * @memberof BaseDriver
    */
   constructor (address, user, rootpath) {
-    this.remote.address = address
-    this.remote.user = user
-    this.remote.rootpath = rootpath
+    this.remote = {
+      address: address,
+      user: user,
+      rootpath: rootpath
+    }
   }
 
   /**

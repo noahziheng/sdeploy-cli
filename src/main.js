@@ -2,18 +2,19 @@ class AppCore {
   /**
    * Creates an instance of AppCore.
    * @param {Boolean} [newF=false] A flag to skip config select,do new action directly.
-   * @param {String} [outputPath=null] Config file output path,skip upload action if not null.
+   * @param {String} [postScript=null] The shell command will be execute before upload.
    * @memberof AppCore
    */
-  constructor (newF = false, outputPath = null) {
+  constructor (newF = false, postScript = null) {
     this.newF = newF
-    this.outputPath = outputPath
+    this.postScript = postScript
   }
 
   /**
    * App Main Entry
    *
-   * @param {String} arg Command arg,maybe config's name or path
+   * @param {String} configName Config's name
+   * @param {String} configPath Config's path
    * @memberof AppCore
    */
   run (configName = null, configPath = null) {
