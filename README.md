@@ -43,8 +43,8 @@ Server Directory: ~/static/html
 ```shell
 $ yarn global add sdeploy
 
-$ sdeploy ~/static
-# Use Add Config Option:
+$ sdeploy ~/static -n
+# Use Add Config Option
 Current config location: /Users/noah/Library/Preferences/sdeploy-nodejs/config.json
 ? What's config you want to select? Add Config
 ? What's config name? RemoteConfig
@@ -57,3 +57,53 @@ Current config location: /Users/noah/Library/Preferences/sdeploy-nodejs/config.j
 '
 $ sdeploy ~/static RemoteConfig -r static/html
 ```
+
+### Upload Vue Bundle to Static Server
+
+Local Directory: ./dist
+Server Address: 123.45.67.8
+Server Username: noah
+Server Directory: ~/static/html
+
+```shell
+$ yarn global add sdeploy
+
+$ sdeploy ./dist -n
+# Use Add Config Option
+Current config location: /Users/noah/Library/Preferences/sdeploy-nodejs/config.json
+? What's config you want to select? Add Config
+? What's config name? RemoteConfig
+? What's driver you want to select? RSyncDriver
+? What's remote server address? 123.45.67.8
+? What's remote server user? noah
+? What's remote server rootpath? ~/
+? What's upload driver argument? -r -l --progress --delete --force
+[Success] Added Remote Config
+'
+
+$ sdeploy ./dist RemoteConfig -r static/html
+```
+
+You can use local installation instead of globally:
+
+```shell
+yarn add sdeploy
+./node_modules/.bin/sdeploy ./dist -c ./config.json -n # Add config on project dir
+```
+
+And edit package.json "script" to:
+
+```JSON
+...
+  {
+    "scripts": {
+      "deploy": "sdeploy ./dist -c ./config.json -p \"node build/build.js\"",
+      "deploy:nobuild": "sdeploy ./dist -c ./config.json"
+    }
+  }
+...
+```
+
+## License
+
+GPLv3
