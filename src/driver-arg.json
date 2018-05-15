@@ -1,0 +1,5 @@
+[
+  "-r -l --progress --delete --force",
+  "-rf",
+  "-rf"
+]

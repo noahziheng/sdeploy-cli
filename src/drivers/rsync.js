@@ -1,10 +1,11 @@
 const shell = require('shelljs')
 const BaseDriver = require('./base')
+const ArgArr = require('../driver-arg.json')
 
 class RSyncDriver extends BaseDriver {
   constructor (...args) {
     super(...args)
-    this.args = '-r -l --progress --delete --force'
+    this.args = ArgArr[0]
   }
 
   upload (localpath = '.', remotepath = '') {

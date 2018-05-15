@@ -1,10 +1,11 @@
 const shell = require('shelljs')
 const BaseDriver = require('./base')
+const ArgArr = require('../driver-arg.json')
 
 class SCPDriver extends BaseDriver {
   constructor (...args) {
     super(...args)
-    this.args = '-rf'
+    this.args = ArgArr[1]
   }
 
   upload (localpath = '.', remotepath = '') {

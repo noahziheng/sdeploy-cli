@@ -6,21 +6,12 @@ class BaseDriver {
    * @param {String} rootpath Remote root path
    * @memberof BaseDriver
    */
-  constructor (address, user, rootpath) {
+  constructor (address, user, rootpath, args = '') {
     this.remote = {
       address: address,
       user: user,
       rootpath: rootpath
     }
-  }
-
-  /**
-   * Method for set driver arguments
-   *
-   * @param {String} args UNIX Command Arguments
-   * @memberof BaseDriver
-   */
-  setArgs (args) {
     this.args = args
   }
 
