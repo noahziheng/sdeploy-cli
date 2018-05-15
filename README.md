@@ -6,16 +6,16 @@ A light development tool using SCP,SFTP and RSync
 
 ```shell
 # install the cli globally with yarn (Preferred Way)
-yarn global add sdeploy
+yarn global add sdeploy-cli
 
 # install the cli globally with npm (Leagcy Way)
-npm install -g sdeploy
+npm install -g sdeploy-cli
 
 # install the cli locally with yarn (Preferred Way, for single project, only can use with npm script)
-yarn add sdeploy
+yarn add sdeploy-cli
 
 # install the cli locally with npm (Leagcy Way, for single project, only can use with npm script)
-npm install sdeploy
+npm install sdeploy-cli
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ Server Username: noah
 Server Directory: ~/static/html
 
 ```shell
-$ yarn global add sdeploy
+$ yarn global add sdeploy-cli
 
 $ sdeploy ~/static -n
 # Use Add Config Option
@@ -87,7 +87,7 @@ $ sdeploy ./dist RemoteConfig -r static/html
 You can use local installation instead of globally:
 
 ```shell
-yarn add sdeploy
+yarn add sdeploy-cli
 ./node_modules/.bin/sdeploy ./dist -c ./config.json -n # Add config on project dir
 ```
 
