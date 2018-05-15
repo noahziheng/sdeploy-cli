@@ -2,6 +2,7 @@ const Conf = require('conf')
 const inquirer = require('inquirer')
 const pathMod = require('path')
 const chalk = require('chalk')
+const shell = require('shelljs')
 const defaultConfig = require('./default.json')
 const ArgArr = require('./driver-arg.json')
 const DriverArr = require('./drivers')
@@ -243,6 +244,8 @@ class AppCore {
    */
   doUpload (config) {
     const Driver = DriverArr[config.type]
+    const r = shell.exec(this.postScript)
+    if (r.code !== 0) return Promise.reject(new Error(r.stderr))
     return new Driver(config.address, config.user, config.rootpath, config.arg).upload(this.localpath, this.remotepath)
       .then(r => {
         return {
