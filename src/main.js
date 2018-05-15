@@ -244,8 +244,10 @@ class AppCore {
    */
   doUpload (config) {
     const Driver = DriverArr[config.type]
-    const r = shell.exec(this.postScript)
-    if (r.code !== 0) return Promise.reject(new Error(r.stderr))
+    if (this.postScript) {
+      const r = shell.exec(this.postScript)
+      if (r.code !== 0) return Promise.reject(new Error(r.stderr))
+    }
     return new Driver(config.address, config.user, config.rootpath, config.arg).upload(this.localpath, this.remotepath)
       .then(r => {
         return {
