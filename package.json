@@ -1,9 +1,9 @@
 {
-  "name": "sdeploy",
+  "name": "sdeploy-cli",
   "version": "0.9.0",
   "description": "A light development tool using SCP,SFTP and RSync",
   "main": "index.js",
-  "repository": "https://github.com/noahziheng/sdeploy",
+  "repository": "https://github.com/noahziheng/sdeploy-cli",
   "bin": {
     "sdeploy": "./index.js"
   },

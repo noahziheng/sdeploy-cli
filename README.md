@@ -1,4 +1,4 @@
-# sdeploy
+# sdeploy-cli
 
 A light development tool using SCP,SFTP and RSync
 
