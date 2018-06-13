@@ -10,7 +10,9 @@ class RSyncDriver extends BaseDriver {
 
   upload (localpath = '.', remotepath = '') {
     return new Promise((resolve, reject) => {
-      const result = shell.exec(`rsync ${localpath} ${this.remote.user}@${this.remote.address}:${this.remote.rootpath}/${remotepath} ${this.args}`)
+      const command = `rsync ${localpath} ${this.remote.user}@${this.remote.address}:${this.remote.rootpath}/${remotepath} ${this.args}`
+      console.log('Running command:', command)
+      const result = shell.exec(command)
       return result.code !== 0 ? reject(new Error(result.stderr)) : resolve(result)
     })
   }

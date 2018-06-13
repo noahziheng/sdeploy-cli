@@ -244,11 +244,15 @@ class AppCore {
    */
   doUpload (config) {
     const Driver = DriverArr[config.type]
-    if (this.postScript) {
-      const r = shell.exec(this.postScript)
-      if (r.code !== 0) return Promise.reject(new Error(r.stderr))
-    }
-    return new Driver(config.address, config.user, config.rootpath, config.arg).upload(this.localpath, this.remotepath)
+    const prom = this.postScript ? new Promise((resolve, reject) => {
+      console.log('Running post-script:', this.postScript)
+      shell.exec(`SDEPLOY_SERVER=${config.address} ` + this.postScript, {async: true}, (code, stdout, stderr) => {
+        if (code !== 0) return Promise.reject(new Error(stderr))
+        else return resolve()
+      })
+    }) : Promise.resolve()
+    return prom
+      .then(() => new Driver(config.address, config.user, config.rootpath, config.arg).upload(this.localpath, this.remotepath))
       .then(r => {
         return {
           status: r.code === 0,
